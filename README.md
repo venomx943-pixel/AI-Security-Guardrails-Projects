@@ -31,3 +31,31 @@ This framework implements a **Defense-in-Depth** strategy across three critical 
 * **Low-Latency Execution:** Built to process checks within milliseconds, ensuring seamless user experience without noticeable lag.
 * **Fail-Closed Principle:** If any internal exception, tool failure, or unexpected error occurs within the guardrail pipeline, the system **automatically blocks** the request/response by default, prioritizing absolute safety over availability.
 * **Modular Design:** Easily extensible pipeline architecture allowing seamless integration of new security layers.
+
+* # LLM Security Gateway & Multi-Layer Defense Orchestrator
+
+A production-grade, centralized security gateway and reverse proxy middleware designed to orchestrate end-to-end defense-in-depth inspection pipelines for enterprise Large Language Model (LLM) architectures.
+
+---
+
+## 🛡️ Architecture & Threat Engineering
+
+In enterprise deployments, scattering security checks across disparate files or unmanaged API wrappers creates severe security blind spots and compliance risks. 
+
+This repository implements a **Centralized Security Gateway** that acts as an intelligent neural and lexical proxy. Every incoming request is intercepted and forced through a sequential, decoupled middleware pipeline enforcing strict **Fail-Closed** principles before reaching the core model inference endpoint.
+
+---
+
+### Core Security Layers & Pipeline
+
+1. **Input Sanitization Layer (`InputSanitizationMiddleware`):** Intercepts payloads to strip prompt injection markers, system override commands, and unauthorized control tokens.
+2. **Model Alignment Layer (`ModelAlignmentMiddleware`):** Evaluates deep semantic intent and guards against advanced adversarial jailbreaks, malware generation, and structural evasion.
+3. **Fail-Closed Enforcement Engine:** Instantly halts pipeline execution and returns safe defaults upon encountering system exceptions or security violations.
+
+---
+
+## ⚙️ Software Engineering Principles
+
+* **Middleware Chain-of-Responsibility:** Decoupled inspection layers allow security administrators to inject, reorder, or remove validation steps without altering core gateway logic.
+* **Open-Closed Principle (OCP):** New security checks can be implemented seamlessly by extending `SecurityPipelineMiddleware`.
+* **Telemetry & Observability:** Every request captures precise latency profiling (ms) and sequential layer telemetry for enterprise SIEM ingestion and auditing.
