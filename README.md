@@ -56,6 +56,39 @@ This repository implements a **Centralized Security Gateway** that acts as an in
 
 ## ⚙️ Software Engineering Principles
 
+
+# AI Security SIEM & Real-Time Monitoring Dashboard 
+
+An enterprise-grade Security Information and Event Management (SIEM) telemetry aggregator and real-time security operations center (SOC) dashboard designed for centralized AI infrastructure monitoring.
+
+---
+
+## 🛡️ Architecture & Threat Engineering
+
+As organizations scale their Large Language Model (LLM) deployments across multiple microservices and gateways, decentralized security logs create profound operational blindness. 
+
+This repository implements a **Centralized SIEM Telemetry Engine** that ingests real-time events from edge security gateways, aggregates critical threat metrics, runs automated anomaly detection algorithms, and exposes executive-ready Security Operations Center (SOC) dashboards.
+
+---
+
+### Core Components & Pipeline
+
+1. **Telemetry Event Schema (`TelemetryEvent`):** Standardized data container capturing high-precision execution timestamps, source defense layers, request statuses, latencies, and threat categories.
+2. **SIEM Ingestion & Analytics Engine (`SecuritySIEMProcessor`):** Acts as a centralized data lake handler, ingesting event streams and maintaining real-time counters.
+3. **Automated Anomaly Detection:** Dynamically inspects ingestion windows for sudden threat velocity spikes or infrastructural pipeline errors.
+4. **Executive Dashboard Generator:** Computes critical Key Performance Indicators (KPIs) such as total request volume, block rates, average latency profiles, and active security warnings.
+
+---
+
+## ⚙️ Software Engineering Principles
+
+* **Stream-Processing Architecture:** Built for high-throughput, low-latency log ingestion and aggregation.
+* **Separation of Concerns:** Decouples telemetry collection and anomaly detection logic from core gateway execution, ensuring minimal performance overhead.
+* **Executive-Ready Telemetry:** Translates complex technical security events into clear, actionable business metrics for CISOs and compliance auditors.
+
+---
+
+
 * **Middleware Chain-of-Responsibility:** Decoupled inspection layers allow security administrators to inject, reorder, or remove validation steps without altering core gateway logic.
 * **Open-Closed Principle (OCP):** New security checks can be implemented seamlessly by extending `SecurityPipelineMiddleware`.
 * **Telemetry & Observability:** Every request captures precise latency profiling (ms) and sequential layer telemetry for enterprise SIEM ingestion and auditing.
