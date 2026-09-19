@@ -92,3 +92,37 @@ This repository implements a **Centralized SIEM Telemetry Engine** that ingests 
 * **Middleware Chain-of-Responsibility:** Decoupled inspection layers allow security administrators to inject, reorder, or remove validation steps without altering core gateway logic.
 * **Open-Closed Principle (OCP):** New security checks can be implemented seamlessly by extending `SecurityPipelineMiddleware`.
 * **Telemetry & Observability:** Every request captures precise latency profiling (ms) and sequential layer telemetry for enterprise SIEM ingestion and auditing.
+
+
+
+
+
+# Indirect Prompt Injection (IPI) Defense Shield
+
+An advanced security module designed to neutralize Indirect Prompt Injection (IPI) attacks by enforcing strict structural context isolation, boundary sandboxing, and control token neutralization for untrusted external data sources.
+
+---
+
+## 🛡️ Architecture & Threat Engineering
+
+When enterprise AI agents process external data sources—such as web scrapers, ingested RAG documents, or external emails—adversaries can embed hidden malicious instructions. Because conventional LLMs struggle to distinguish between **trusted system instructions** and **untrusted data**, the model blindly executes these injected commands.
+
+This repository implements a **Semantic Sandboxing & Dual-Context Isolation Proxy** that intercepts external data before it reaches the core LLM inference engine, rendering malicious control sequences completely inert.
+
+---
+
+### Core Defensive Mechanisms
+
+1. **Control Token Neutralization:** Scans incoming payloads for known jailbreak, breakout, and system override patterns (`ignore previous instructions`, `system override`, etc.) and safely neutralizes them in transit.
+2. **Structural Sandboxing:** Wraps all external, untrusted content inside strict XML boundaries (`<untrusted_external_data>`) accompanied by explicit machine-readable guardrail comments instructing the LLM to treat the block purely as passive data.
+3. **Telemetry & Threat Logging:** Captures precise warning logs and threat categorizations for centralized enterprise SIEM ingestion.
+
+---
+
+## ⚙️ Software Engineering Principles
+
+* **Separation of Concerns:** Decouples data ingestion pipelines from core prompt execution logic.
+* **Fail-Safe Data Sanitization:** Guarantees that untrusted external context is structurally disarmed prior to prompt assembly.
+* **Extensible Regular Expression Engine:** Easily adjustable pattern lists to catch evolving prompt injection signatures.
+
+---
