@@ -126,3 +126,26 @@ This repository implements a **Semantic Sandboxing & Dual-Context Isolation Prox
 * **Extensible Regular Expression Engine:** Easily adjustable pattern lists to catch evolving prompt injection signatures.
 
 ---
+
+
+# Inference-Time Guardrails & Chain-of-Thought Auditing Shield
+An advanced security module designed to neutralize Inference-Time Reasoning and Chain-of-Thought (CoT) Exploitation by enforcing real-time inspection, token auditing, and semantic guardrail alignment on hidden internal scratchpads of deep reasoning models.
+
+## 🛡️ Architecture & Threat Engineering
+When enterprise AI agents utilize deep reasoning models (such as o1/o3 architectures) that perform extensive internal "thinking" steps before producing a final response, sophisticated adversaries can execute Reasoning Loop Poisoning. By injecting philosophical, hypothetical, or contradictory narratives into the prompt, attackers trick the model's internal scratchpad into self-justifying security policy bypasses under false pretexts (e.g., emergency debugging or educational testing).
+
+This repository implements a Real-Time Inference Guardrail Proxy that intercepts internal reasoning tokens on-the-fly, instantly halting malicious reasoning loops before sensitive outputs or compromised logic can reach the final response layer.
+
+# Core Defensive Mechanisms
+Real-Time Scratchpad Inspection: Continuously scans internal generation streams (Hidden Scratchpads) for unauthorized justification patterns and policy bypass narratives.
+
+Reasoning Loop Interception: Instantly cuts off and halts generation when a manipulation or subversion attempt is detected within the model's thought process.
+
+Guardrail Alignment & Telemetry: Logs precise reasoning audit trails for enterprise security monitoring and centralized SIEM ingestion.
+
+# ⚙️ Software Engineering Principles
+Low-Latency Runtime Auditing: Designed to inspect token streams dynamically during inference without introducing disruptive overhead.
+
+Fail-Safe Interception: Automatically overrides compromised thought paths with secure fallback messages.
+
+Extensible Pattern Matching: Easily configurable regular expression engine to detect evolving chain-of-thought jailbreak signatures.
