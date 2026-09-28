@@ -149,3 +149,26 @@ Low-Latency Runtime Auditing: Designed to inspect token streams dynamically duri
 Fail-Safe Interception: Automatically overrides compromised thought paths with secure fallback messages.
 
 Extensible Pattern Matching: Easily configurable regular expression engine to detect evolving chain-of-thought jailbreak signatures.
+
+
+##Weight-Space Inspection & Activation Clustering Shield
+An advanced security module designed to neutralize Model Backdoors & Trojan Attacks (Weight-Space Poisoning) by enforcing spectral weight analysis and activation clustering audits on open-source or fine-tuned deep learning models before production deployment.
+
+##🛡️ Architecture & Threat Engineering
+When engineering modern AI solutions, organizations frequently download pre-trained open-source models from platforms like Hugging Face or collaborate with external vendors for fine-tuning. Advanced adversaries can exploit this trust by embedding Weight-Space Backdoors. The model behaves completely normally during standard safety evaluations (passing 99% of tests), but activates malicious behavior (such as data exfiltration or fraudulent transactions) the moment it receives a specific hidden trigger or prompt pattern.
+
+This repository implements an automated Weight-Space Inspection Shield that mathematically audits neural network weights and internal activations to detect anomalies and quarantine compromised models.
+
+Core Defensive Mechanisms
+Spectral Weight Analysis: Computes standard deviations and variances across neural layers to identify mathematical anomalies introduced by backdoor injections.
+
+Activation Clustering & Probing: Analyzes internal layer activations against baseline distributions to catch hidden trigger-induced behaviors.
+
+Automated Quarantine Enforcement: Instantly flags and isolates models that exceed safety thresholds, preventing compromised files from reaching production environments.
+
+##⚙️ Software Engineering Principles
+Low-Overhead Metric Inspection: Designed to audit model layers efficiently using vectorized numerical operations (NumPy).
+
+Fail-Safe Quarantine: Automatically transitions suspicious models into a restricted state.
+
+Extensible Anomaly Thresholds: Configurable statistical deviation limits tailored to specific model architectures.
